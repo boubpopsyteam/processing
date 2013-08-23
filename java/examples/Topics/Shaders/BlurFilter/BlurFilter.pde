@@ -7,6 +7,7 @@
  */
 
 PShader blur;
+boolean isDefault = true;
 
 void setup() {
   size(640, 360, P2D);
@@ -16,10 +17,12 @@ void setup() {
 }
 
 void draw() {
-  filter(blur);  
+  if (!isDefault) { filter(blur); }
   rect(mouseX, mouseY, 150, 150); 
   ellipse(mouseX, mouseY, 100, 100);
 }
 
-
+void mousePressed() {
+  isDefault = !isDefault;
+}
 
